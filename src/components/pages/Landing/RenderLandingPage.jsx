@@ -40,7 +40,7 @@ function RenderLandingPage(props) {
             alt="Grant Rates By Office"
             className="by-office-img"
           />
-          <p>Search Grant Rates By Office</p>
+          <p className="office-p">Search Grant Rates By Office</p>
         </div>
         <div className="grant-rates-by-nationality-container">
           <img
@@ -48,7 +48,7 @@ function RenderLandingPage(props) {
             alt="Grant Rates by Nationality"
             className="by-nationality-img"
           />
-          <p>Search Grant Rates By Nationality</p>
+          <p className="nationality-p">Search Grant Rates By Nationality</p>
         </div>
         <div className="grant-rates-over-time-container">
           <img
@@ -56,7 +56,7 @@ function RenderLandingPage(props) {
             alt="Grant Rates Over time"
             className="over-time-img"
           />
-          <p>Search Grant Rates Over Time</p>
+          <p className="time-p">Search Grant Rates Over Time</p>
         </div>
       </div>
       <div className="view-more-data-btn-container">
