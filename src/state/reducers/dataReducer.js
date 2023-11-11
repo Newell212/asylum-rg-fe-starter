@@ -6,6 +6,7 @@ import {
   GET_MOCK_FILTERED_DATA,
   PERFORM_ADVANCED_SEARCH,
   TOGGLE_ADVANCED_SEARCH,
+  GET_DATA,
 } from '../actionTypes';
 
 export const initialState = {
@@ -58,6 +59,11 @@ function dataReducer(state = initialState, action) {
     }
     case RESET_CASE_DATA: {
       return { ...state, filterCount: 0, filteredCases: [] };
+    }
+    case GET_DATA: {
+      return {
+        data: action.payload,
+      };
     }
     default: {
       return state;
