@@ -31,7 +31,13 @@ ReactDOM.render(
   <Router>
     <Provider store={store}>
       <React.StrictMode>
-        <Auth0Provider>
+        <Auth0Provider
+          domain="dev-6ftjzivkhhj8u8z7.us.auth0.com"
+          clientId="cmeD3mILKNg8ZRuK1Z4ZUDV0gkHNroas"
+          authorizationParams={{
+            redirect_uri: window.location.origin,
+          }}
+        >
           <App />
         </Auth0Provider>
       </React.StrictMode>
