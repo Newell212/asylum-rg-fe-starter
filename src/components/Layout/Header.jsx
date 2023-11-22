@@ -1,28 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image } from 'antd';
 import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
 import { useAuth0 } from '@auth0/auth0-react';
+import { AuthenticationButton } from '../authenticationButton';
 
 const { primary_accent_color } = colors;
 
 function HeaderContent() {
-  const LoginButton = () => {
-    const { loginWithRedirect } = useAuth0();
+  const Profile = () => {
+    const { user, isAuthenticated, isLoading } = useAuth0();
+
+    if (isLoading) {
+      return <div>Loading ...</div>;
+    }
 
     return (
-      <button
-        onClick={() => loginWithRedirect()}
-        style={{
-          backgroundColor: primary_accent_color,
-          color: '#E2F0F7',
-          borderColor: primary_accent_color,
-          paddingLeft: '60px',
-        }}
-      >
-        Log In
-      </button>
+      isAuthenticated && (
+        <div>
+          <img src={user.picture} alt={user.name} />
+          <h2>{user.name}</h2>
+          <p>{user.email}</p>
+        </div>
+      )
     );
   };
 
@@ -47,7 +48,7 @@ function HeaderContent() {
         <Link to="/graphs" style={{ color: '#E2F0F7' }}>
           Graphs
         </Link>
-        <LoginButton />
+        <AuthenticationButton />
       </div>
     </div>
   );
