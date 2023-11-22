@@ -1,32 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Image } from 'antd';
 import { Link } from 'react-router-dom';
 import Logo from '../../styles/Images/WhiteLogo.png';
 import { colors } from '../../styles/data_vis_colors';
-import { useAuth0 } from '@auth0/auth0-react';
 import { AuthenticationButton } from '../authenticationButton';
 
 const { primary_accent_color } = colors;
 
 function HeaderContent() {
-  const Profile = () => {
-    const { user, isAuthenticated, isLoading } = useAuth0();
-
-    if (isLoading) {
-      return <div>Loading ...</div>;
-    }
-
-    return (
-      isAuthenticated && (
-        <div>
-          <img src={user.picture} alt={user.name} />
-          <h2>{user.name}</h2>
-          <p>{user.email}</p>
-        </div>
-      )
-    );
-  };
-
   return (
     <div
       style={{
